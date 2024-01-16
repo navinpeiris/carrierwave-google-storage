@@ -66,7 +66,7 @@ module CarrierWave
           @file = bucket.create_file(
             new_file.path,
             path,
-            acl: uploader.gcloud_bucket_is_public ? 'publicRead' : nil,
+            acl: nil,
             content_type: new_file.content_type,
             content_disposition: uploader.gcloud_content_disposition
           )
@@ -77,7 +77,7 @@ module CarrierWave
       def copy_to(new_path)
         file.copy(
           new_path,
-          acl: uploader.gcloud_bucket_is_public ? 'publicRead' : nil
+          acl: nil
         )
       end
 
